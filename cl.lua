@@ -93,7 +93,7 @@ local action = {
         }
     end,
     ["SET_FREQUENCY"] = function(p)
-        TriggerServerEvent("vrp_hud:RemovePlayerFromChannel", last_frequency, vRP.getUserId())
+        TriggerServerEvent("vrp_radio:RemovePlayerFromChannel", last_frequency, vRP.getUserId())
         local hasPerm = sRadio.checkFrequency(p)
         if hasPerm then
             last_frequency = p
@@ -108,7 +108,7 @@ local action = {
         }
     end,
     ["DISCONNECT"] = function()
-        TriggerServerEvent("vrp_hud:RemovePlayerFromChannel", last_frequency, vRP.getUserId())
+        TriggerServerEvent("vrp_radio:RemovePlayerFromChannel", last_frequency, vRP.getUserId())
         TriggerEvent("vrp_hud:ActiveFrequency", 0, false)
         return {
             status = true,

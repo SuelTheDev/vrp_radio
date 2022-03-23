@@ -58,12 +58,12 @@ RegisterCommand("myradio", function(source, _, _)
     end
 end)
 
-RegisterNetEvent("vrp_hud:RemovePlayerFromChannel", function(freq, user_id)
+RegisterNetEvent("vrp_radio:RemovePlayerFromChannel", function(freq, user_id)
     if playersInChannel["f_" .. freq] then
         playersInChannel["f_" .. freq][user_id] = nil
     end
 end)
 
 AddEventHandler("vRP:playerLeave", function(user_id, player)
-    TriggerEvent("vrp_hud:RemovePlayerFromChannel", Player(player).state['radioChannel'], user_id)
+    TriggerEvent("vrp_radio:RemovePlayerFromChannel", Player(player).state['radioChannel'], user_id)
 end)
